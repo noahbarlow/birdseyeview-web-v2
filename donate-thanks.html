@@ -3,84 +3,12 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Documentaries — Bird's Eye View</title>
-<meta name="description" content="Two feature documentaries embedded with the cohorts. After the Uniform (March 2026) and Documentary II (in production)." />
+<title>Thank you — Bird's Eye View Project</title>
+<meta name="description" content="Donation received. Receipt sent. Field Brief updates incoming. Thank you for funding a year of treatment, biomarkers, and community for an operator carrying the cost." />
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Spectral:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="styles.css">
-<style>
-  /* Two-up film poster grid */
-  .films{display:grid;grid-template-columns:1fr 1fr;gap:clamp(20px,3vw,32px);margin-top:clamp(24px,4vw,40px)}
-  @media (max-width:760px){.films{grid-template-columns:1fr}}
-  .film{
-    border:1px solid var(--ink);background:var(--bone-2);
-    display:flex;flex-direction:column;
-  }
-  .film__poster{
-    aspect-ratio:2/3;background:var(--orange);position:relative;overflow:hidden;
-    border-bottom:1px solid var(--ink);
-  }
-  .film__poster img{
-    position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-    filter:grayscale(1) contrast(1.45) brightness(1.05);
-    mix-blend-mode:multiply;
-  }
-  .film__poster .stamp-corner{
-    position:absolute;top:14px;right:14px;z-index:3;
-    border:1.5px solid var(--bone);color:var(--bone);
-    padding:6px 10px;font-family:var(--ff-mono);font-size:9px;letter-spacing:.22em;text-transform:uppercase;
-  }
-  .film__poster .vol-corner{
-    position:absolute;top:14px;left:14px;z-index:3;
-    color:var(--bone);font-family:var(--ff-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;
-  }
-  .film__poster .title-block{
-    position:absolute;left:18px;right:18px;bottom:18px;z-index:3;color:var(--bone);
-  }
-  .film__poster .title-block h3{
-    font-family:var(--ff-display);font-weight:900;font-size:clamp(36px,4.4vw,56px);
-    line-height:.86;letter-spacing:-.005em;text-transform:uppercase;
-  }
-  .film__poster .title-block .by{
-    margin-top:12px;font-family:var(--ff-edit);font-style:italic;font-size:14px;color:rgba(236,227,208,.85);
-  }
-  .film__poster.tbd{
-    background:var(--ink);
-    display:grid;place-items:center;
-  }
-  .film__poster.tbd::after{
-    content:"";position:absolute;inset:14px;border:1.5px dashed rgba(200,33,12,.55);
-  }
-  .film__poster.tbd .placeholder-content{
-    position:relative;z-index:3;text-align:center;color:var(--bone);padding:30px 24px;
-  }
-  .film__poster.tbd .placeholder-content .lbl{color:var(--orange);margin-bottom:10px;display:block}
-  .film__poster.tbd .placeholder-content h3{
-    font-family:var(--ff-display);font-weight:900;font-size:clamp(34px,4.2vw,52px);
-    line-height:.88;letter-spacing:-.005em;text-transform:uppercase;color:var(--bone);
-  }
-  .film__poster.tbd .placeholder-content p{
-    margin-top:12px;font-family:var(--ff-edit);font-style:italic;font-size:15px;color:rgba(236,227,208,.7);max-width:24ch;margin-inline:auto;
-  }
-  .film__meta{
-    padding:22px 24px;display:grid;gap:6px;
-  }
-  .film__meta .row{
-    display:flex;justify-content:space-between;font-family:var(--ff-mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--ink-soft);
-    padding:6px 0;border-bottom:1px dashed var(--rule);
-  }
-  .film__meta .row:last-child{border-bottom:0}
-  .film__meta .row b{font-family:var(--ff-display);font-weight:800;color:var(--ink);letter-spacing:.04em}
-  .film__cta{padding:16px 24px;border-top:1px solid var(--ink);background:var(--ink);color:var(--bone);display:flex;justify-content:space-between;align-items:center;gap:12px}
-  .film__cta a{
-    font-family:var(--ff-display);font-weight:800;font-size:13px;letter-spacing:.16em;text-transform:uppercase;
-    color:var(--bone);
-  }
-  .film__cta a:hover{color:var(--orange)}
-  .film__cta .status{font-family:var(--ff-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:rgba(236,227,208,.6)}
-  .film__cta .status.live{color:var(--orange)}
-</style>
 <!-- Favicons & PWA -->
 <link rel="icon" type="image/svg+xml" href="favicon.svg">
 <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
@@ -115,7 +43,7 @@
       <a href="about.html">About</a>
       <a href="programs.html">Programs</a>
       <a href="events.html">Events</a>
-      <a href="documentary.html" class="is-active">Documentary</a>
+      <a href="documentary.html">Documentary</a>
       <a href="apply.html">Apply</a>
       <a class="apply" href="donate.html">Donate</a>
     </nav>
@@ -124,169 +52,118 @@
 
 <main id="main">
 
-<!-- HERO + TWO FILMS -->
+<!-- HERO -->
 <section class="section bone hero hero--simple">
   <div class="wrap">
     <div class="hero-meta">
-      <span class="vol">Field Brief · Vol. 01</span>
+      <span class="vol">Donation · Confirmed</span>
       <span class="div"></span>
-      <span class="lbl-sm">Documentary Slate · 2026</span>
+      <span class="lbl-sm">Confirmation</span>
     </div>
-    <h1 class="hero-head dpy reveal">
-      <span class="ln">The</span>
-      <span class="ln"><em>Documentaries</em>.</span>
-    </h1>
-    <p class="hero-lead">Two feature films embedded with the cohorts. Honest, not promotional. The work week by week, the doubt, the rebuilding.</p>
-
-    <div class="films reveal">
-
-      <!-- DOCUMENTARY I -->
-      <article class="film">
-        <div class="film__poster">
-          <img src="img/MRC03890.jpg" alt="">
-          <span class="vol-corner">Film № I · Cohort 3</span>
-          <span class="stamp-corner">Mar 2026</span>
-          <div class="title-block">
-            <h3>After<br>the<br>Uniform</h3>
-            <p class="by">Embedded with Cohort 3 · 52 weeks · 5 participants</p>
-          </div>
-        </div>
-        <div class="film__meta">
-          <div class="row"><span>Runtime</span><b>78 Minutes</b></div>
-          <div class="row"><span>Subject</span><b>Cohort 3 · 2024</b></div>
-          <div class="row"><span>Format</span><b>Feature Documentary</b></div>
-          <div class="row"><span>Release</span><b>March 2026</b></div>
-        </div>
-        <div class="film__cta">
-          <span class="status live">// Pre-Release Access</span>
-          <a href="#access">Get Access →</a>
-        </div>
-      </article>
-
-      <!-- DOCUMENTARY II -->
-      <article class="film">
-        <div class="film__poster tbd">
-          <span class="vol-corner">Film № II</span>
-          <span class="stamp-corner">In Production</span>
-          <div class="placeholder-content">
-            <span class="lbl">// Title TBD</span>
-            <h3>Documentary II</h3>
-            <p>Currently in production. Title and release date to follow.</p>
-          </div>
-        </div>
-        <div class="film__meta">
-          <div class="row"><span>Runtime</span><b>TBD</b></div>
-          <div class="row"><span>Subject</span><b>TBD</b></div>
-          <div class="row"><span>Format</span><b>Feature Documentary</b></div>
-          <div class="row"><span>Release</span><b>TBD · 2026/27</b></div>
-        </div>
-        <div class="film__cta">
-          <span class="status">// Updates Coming</span>
-          <a href="#access">Get Updates →</a>
-        </div>
-      </article>
-
-    </div>
+    <h1 class="hero-head dpy reveal"><span class="ln">Thank <em>you</em>.</span><span class="ln">The work continues.</span></h1>
+    <p class="hero-lead">Your gift just funded another year on the line. Receipt is in your inbox. The cohort thanks you in advance.</p>
   </div>
 </section>
 
-<!-- ORANGE BAND -->
-<section class="band">
-  <div class="wrap-wide">
-    <div class="band-inner">
-      <svg class="feather" viewBox="0 0 815.36 1000" aria-hidden="true"><use href="#feather"/></svg>
-      <p class="band-quote">Not about <em>heroism</em> — about the hard work of rebuilding.</p>
-      <span class="band-tag">Cohort · 3 · Embed</span>
-    </div>
-  </div>
-</section>
 
-<!-- AFTER THE UNIFORM — THE STORY -->
+<!-- N°01 YOUR GIFT IN MOTION -->
 <section class="section bone">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="no"><sup>N°</sup>01</div>
-      <h2 class="ttl">After the Uniform.<br>The story.</h2>
-      <div class="meta">// Subject Matter<b>Cohort · 03</b></div>
+      <h2 class="ttl">Your gift,<br>in motion.</h2>
+      <div class="meta">// What happens next</div>
     </div>
 
-    <div class="mission-grid">
-      <p class="lead reveal">
-        Five participants. <b>52 weeks.</b> One camera embedded with the cohort from anonymous selection through the completion ceremony.
-      </p>
-      <div class="reveal">
-        <p>This is not a recruitment film. There are no triumphant montages, no orchestral swells, no platitudes about service. The work is hard. The doubt is real. The friendships are earned.</p>
-        <p>What you see is the system applied, week by week — the selection, the therapy, the biomarkers, the gatherings — and what it does to people who fully commit to it.</p>
+    <article class="roster reveal">
+      <header class="roster__head">
+        <h3>Donor receipt &middot; In your inbox</h3>
+        <div class="meta">
+          <span>Provider // GivingFuel</span>
+          <span>Status // Confirmed</span>
+        </div>
+      </header>
+      <div class="roster__row roster__row--3">
+        <div class="roster__cell">
+          <span class="pos">Today</span>
+          <span class="fig">Receipt</span>
+          <span class="name">Email From GivingFuel<small>Tax-deductible &middot; save for records</small></span>
+        </div>
+        <div class="roster__cell">
+          <span class="pos">This Quarter</span>
+          <span class="fig">Field Brief</span>
+          <span class="name">Cohort &amp; Events Update<small>One email, no spam</small></span>
+        </div>
+        <div class="roster__cell">
+          <span class="pos">January 2027</span>
+          <span class="fig">990 / Audit</span>
+          <span class="name">Annual Report Drops<small>Full transparency on outcomes</small></span>
+        </div>
       </div>
-    </div>
+    </article>
+
+    <p class="reveal" style="margin-top:24px;font-family:var(--ff-mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)">
+      // Receipt missing? Check spam. Still nothing? Email <a href="mailto:finance@birdseyeviewproject.org" style="color:var(--orange-deep);text-decoration:underline">finance@birdseyeviewproject.org</a> &mdash; we respond within five business days.
+    </p>
   </div>
 </section>
 
-<!-- ACCESS FORM -->
-<section class="section dark" id="access">
-  <div class="wrap-tight">
-    <div class="section-head reveal section-head--small">
-      <h2 class="ttl">Get access.</h2>
-      <div class="meta">// Email Gate<b>Pre · Release</b></div>
-    </div>
-
-    <form class="form reveal" style="max-width:640px;margin-inline:auto" onsubmit="event.preventDefault();this.querySelector('.success').hidden=false;this.querySelector('.fields').hidden=true;">
-      <div class="form-group">
-        <div class="form-group__head">
-          <h3>Documentary Access</h3>
-          <span class="lbl">Free · Pre-Release</span>
-        </div>
-        <div class="fields">
-          <div class="field">
-            <label for="email">Email Address <span class="req">REQUIRED</span></label>
-            <input type="email" id="email" name="email" required placeholder="you@example.com" />
-            <span class="field-help">We'll email screening links and updates on both films. No spam, unsubscribe any time.</span>
-          </div>
-          <button type="submit" class="btn btn--orange">Get Instant Access <span class="arrow">→</span></button>
-        </div>
-        <div class="success" hidden style="border:1.5px solid var(--orange);padding:24px;background:rgba(200,33,12,.06)">
-          <span class="lbl" style="color:var(--orange)">// Confirmed</span>
-          <h4 style="font-family:var(--ff-display);font-weight:900;font-size:24px;letter-spacing:.04em;text-transform:uppercase;color:var(--ink);margin-top:8px">Check your email.</h4>
-          <p style="color:var(--ink-soft);margin-top:8px;font-size:15px;line-height:1.5">We've sent a confirmation. Questions? <a href="mailto:support@birdseyeviewproject.org" style="color:var(--orange);text-decoration:underline">support@birdseyeviewproject.org</a></p>
-        </div>
-      </div>
-    </form>
-  </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section class="section bone">
+<!-- N°02 GO MONTHLY -->
+<section class="section dark">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="no"><sup>N°</sup>02</div>
-      <h2 class="ttl">What people<br>are saying.</h2>
-      <div class="meta">// Early Reactions<b>Screenings · Pre-Release</b></div>
+      <h2 class="ttl" style="color:var(--bone)">Make it<br>monthly.</h2>
+      <div class="meta">// Sustained Funding<b style="color:var(--bone)">Cohort &middot; Cadence</b></div>
     </div>
-    <div class="testimonials reveal">
-      <figure class="testimonial">
-        <blockquote>Raw, honest, and incredibly powerful. There is no performance here — it just is what it is.</blockquote>
-        <cite><b>Former Army Ranger</b>Pre-release Screening</cite>
-      </figure>
-      <figure class="testimonial">
-        <blockquote>I saw myself in every single person. After fifteen years on the rig, I have never seen something show our world like this.</blockquote>
-        <cite><b>Firefighter, 15 Years</b>San Antonio, TX</cite>
-      </figure>
-      <figure class="testimonial">
-        <blockquote>This should be required viewing for every clinician working with first responders. It will change what you ask in your first session.</blockquote>
-        <cite><b>Clinical Therapist</b>Trauma Specialist</cite>
-      </figure>
-      <figure class="testimonial">
-        <blockquote>Not what I expected. Not about heroism — about the hard work of rebuilding the day-to-day.</blockquote>
-        <cite><b>Marine Corps Veteran</b>Cohort 2 Graduate</cite>
-      </figure>
-      <figure class="testimonial">
-        <blockquote>Made me realize I was not alone. I applied to the program the night I watched it.</blockquote>
-        <cite><b>Police Officer, 12 Years</b>Cohort 4 Applicant</cite>
-      </figure>
-      <figure class="testimonial">
-        <blockquote>A masterclass in community and accountability. Watch it with people you trust.</blockquote>
-        <cite><b>Program Graduate</b>Cohort 3</cite>
-      </figure>
+    <div class="scale-grid">
+      <div class="kpis reveal">
+        <div class="kpi"><div class="lbl">Sustainer</div><div class="fig">$50<em>/mo</em></div><div class="desc">$600/yr &middot; manual delivery</div></div>
+        <div class="kpi"><div class="lbl">Supporter</div><div class="fig">$150<em>/mo</em></div><div class="desc">$1.8K/yr &middot; one biomarker panel</div></div>
+        <div class="kpi"><div class="lbl">Partner</div><div class="fig">$500<em>/mo</em></div><div class="desc">$6K/yr &middot; half sponsorship</div></div>
+        <div class="kpi"><div class="lbl">Sponsor</div><div class="fig">$1.25K<em>/mo</em></div><div class="desc">$15K/yr &middot; one full sponsorship</div></div>
+      </div>
+      <div class="scale-copy reveal">
+        <p>Monthly gifts fund cohort planning a year in advance. They&rsquo;re the operational backbone of the mission &mdash; the difference between intent and execution. Cancel anytime, self-service through GivingFuel.</p>
+        <span class="em">If you can&rsquo;t go monthly today, no pressure. <em>The single gift already moved the line.</em></span>
+        <a class="btn btn--orange" href="https://birdseyeviewproject.givingfuel.com/donation" target="_blank" rel="noopener">Become a Monthly Donor <span class="arrow">&rarr;</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- N°03 SHARE THE WORK -->
+<section class="section bone">
+  <div class="wrap">
+    <div class="section-head reveal">
+      <div class="no"><sup>N°</sup>03</div>
+      <h2 class="ttl">Share<br>the work.</h2>
+      <div class="meta">// Force Multiplier</div>
+    </div>
+
+    <p class="reveal" style="font-family:var(--ff-edit);font-style:italic;font-size:clamp(20px,2vw,26px);max-width:60ch;color:var(--ink-soft);margin-bottom:36px;line-height:1.35">
+      One conversation does more than one click. Tell someone what you funded and why.
+    </p>
+
+    <div class="ways-grid reveal">
+      <article class="way">
+        <span class="ico">01</span>
+        <h4>Forward to one person</h4>
+        <p>Send the donate page to someone who&rsquo;d understand the work &mdash; another operator, a foundation contact, a corporate giving lead.</p>
+        <a href="mailto:?subject=Bird%27s%20Eye%20View%20Project&amp;body=I%20just%20funded%20a%20year%20of%20treatment%20for%20a%20veteran%20through%20Bird%27s%20Eye%20View%20Project.%20https%3A%2F%2Fbirdseyeviewproject.org%2Fdonate">Email it &rarr;</a>
+      </article>
+      <article class="way">
+        <span class="ico">02</span>
+        <h4>Follow the cohort</h4>
+        <p>Field Brief updates publish quarterly to email. Instagram and YouTube carry behind-the-scenes from cohorts and events.</p>
+        <a href="https://www.instagram.com/birdseyeviewproject/" target="_blank" rel="noopener">@birdseyeviewproject &rarr;</a>
+      </article>
+      <article class="way">
+        <span class="ico">03</span>
+        <h4>Sponsor a participant</h4>
+        <p>$15K covers one operator&rsquo;s full twelve months. Match your gift to a named participant &mdash; year-end impact report follows.</p>
+        <a href="mailto:major@birdseyeviewproject.org?subject=Sponsor%20a%20Participant">Talk to Major Gifts &rarr;</a>
+      </article>
     </div>
   </div>
 </section>
@@ -294,14 +171,17 @@
 <!-- FINAL CTA -->
 <section class="final">
   <div class="final-inner">
-    <h2>Watch the <em>system</em><br>in action.</h2>
-    <p>Then join it, fund it, or send it to someone who's not sure yet.</p>
+    <h2>Honoring the <em>cost</em>.</h2>
+    <p>You funded a year. The cohort begins. The work continues.</p>
     <div class="hero-cta">
-      <a class="btn btn--orange" href="apply.html">Apply to the Program</a>
-      <a class="btn btn--inverse" href="program.html">About the Program <span class="arrow">→</span></a>
+      <a class="btn btn--orange" href="index.html">Back Home</a>
+      <a class="btn btn--inverse" href="program.html">Read the Program <span class="arrow">&rarr;</span></a>
     </div>
   </div>
 </section>
+
+
+</main>
 
 <footer class="foot">
   <!-- Newsletter signup -->
@@ -318,7 +198,6 @@
     </form>
   </div>
 
-  <!-- Main footer columns -->
   <div class="foot-inner">
     <div>
       <div class="brand brand--foot">
@@ -355,7 +234,6 @@
     </div>
   </div>
 
-  <!-- Social + tax row -->
   <div class="foot-base" style="margin-top:36px;border-top:0;padding-top:0">
     <div class="foot-social">
       <a href="https://www.instagram.com/birdseyeviewproject/" target="_blank" rel="noopener" aria-label="Instagram">
@@ -375,7 +253,6 @@
     <span>Honoring · The · Cost</span>
   </div>
 
-  <!-- Copyright row -->
   <div class="foot-base">
     <span>© 2026 · Bird's Eye View Project · Texas Non-Profit Corporation</span>
     <ul style="display:flex;gap:18px;list-style:none;padding:0;margin:0">
@@ -386,12 +263,5 @@
   </div>
 </footer>
 
-<script>
-(function(){
-  if(!("IntersectionObserver" in window)){document.querySelectorAll(".reveal").forEach(function(el){el.classList.add("in")});return}
-  var io=new IntersectionObserver(function(entries){entries.forEach(function(e){if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}})},{threshold:.12,rootMargin:"0px 0px -8% 0px"});
-  document.querySelectorAll(".reveal").forEach(function(el){io.observe(el)});
-})();
-</script>
 </body>
 </html>

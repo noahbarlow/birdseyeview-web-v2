@@ -259,9 +259,11 @@
       <h6>Field Brief</h6>
       <p>Quarterly updates from the field. Cohort releases, event dates, documentary news. No spam.</p>
     </div>
-    <form class="foot-news__form" onsubmit="event.preventDefault();this.querySelector('input').value='';this.querySelector('button').textContent='Subscribed →';this.querySelector('button').disabled=true;">
+    <form class="foot-news__form" action="#newsletter" method="post" novalidate onsubmit="event.preventDefault();const f=this;const i=f.querySelector('input[type=email]');const b=f.querySelector('button');const m=f.querySelector('.news-msg');if(!i.checkValidity()){i.focus();return}i.value='';b.textContent='Subscribed';b.disabled=true;if(m){m.hidden=false}">
+      <!-- TODO: wire action to real provider (Buttondown / ConvertKit / Mailchimp). Double opt-in required. -->
       <input type="email" name="email" placeholder="you@example.com" required aria-label="Email address" />
       <button type="submit">Subscribe</button>
+      <p class="news-msg" hidden role="status">// Almost there &mdash; check your email to confirm. Search inbox for &ldquo;Bird&rsquo;s Eye View&rdquo; if you don&rsquo;t see it.</p>
     </form>
   </div>
   <div class="foot-inner">
