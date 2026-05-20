@@ -39,13 +39,55 @@
     <a class="brand" href="index.html" aria-label="Bird's Eye View Project, home">
       <img class="brand-logo" src="img/brand/logo-horizontal-black.svg" alt="Bird's Eye View Project" width="258" height="100">
     </a>
-    <nav class="nav" aria-label="Primary">
-      <a href="about.html">About</a>
-      <a href="programs.html">Programs</a>
-      <a href="events.html">Events</a>
-      <a href="documentary.html">Documentary</a>
-      <a href="apply.html">Apply</a>
-      <a class="apply" href="donate.html">Donate</a>
+    <input type="checkbox" id="nav-toggle" class="nav-toggle-checkbox" aria-label="Toggle menu">
+    <label for="nav-toggle" class="nav-toggle-label" aria-hidden="true">
+      <span></span><span></span><span></span>
+    </label>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <ul class="nav-list">
+        <li class="nav-item has-dropdown">
+          <a href="about.html">About <span class="caret" aria-hidden="true">&#9662;</span></a>
+          <ul class="nav-dropdown">
+            <li><a href="about.html#mission">Mission</a></li>
+            <li><a href="about.html#timeline">Timeline</a></li>
+            <li><a href="about.html#board">Leadership &amp; Board</a></li>
+            <li><a href="about.html#ambassadors">Ambassadors</a></li>
+            <li><a href="about.html#financials">Financials</a></li>
+          </ul>
+        </li>
+        <li class="nav-item has-dropdown">
+          <a href="programs.html">Programs <span class="caret" aria-hidden="true">&#9662;</span></a>
+          <ul class="nav-dropdown">
+            <li><a href="programs.html">All Programs</a></li>
+            <li><a href="program.html">War Feather</a></li>
+            <li><a href="7x-project.html">7X Project</a></li>
+            <li><a href="how-it-works.html">How It Works</a></li>
+          </ul>
+        </li>
+        <li class="nav-item has-dropdown">
+          <a href="events.html">Events <span class="caret" aria-hidden="true">&#9662;</span></a>
+          <ul class="nav-dropdown">
+            <li><a href="events.html">Calendar</a></li>
+            <li><a href="events.html#black-ops">Black Ops &middot; DFW</a></li>
+            <li><a href="events.html#shootout">Armed Forces Shootout</a></li>
+            <li><a href="events.html#gathering">Annual Gathering</a></li>
+            <li><a href="documentary.html">Documentary</a></li>
+          </ul>
+        </li>
+        <li class="nav-item has-dropdown">
+          <a href="resources.html">Resources <span class="caret" aria-hidden="true">&#9662;</span></a>
+          <ul class="nav-dropdown">
+            <li><a href="resources.html#media">Media Kit</a></li>
+            <li><a href="resources.html#videos">Videos &amp; Film</a></li>
+            <li><a href="resources.html#toolkit">Fundraising Toolkit</a></li>
+            <li><a href="resources.html#safety">Safety Policies</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a href="partner.html">Partner</a></li>
+        <li class="nav-item nav-item--crisis"><a href="get-support.html">Get Support</a></li>
+        <li class="nav-item nav-item--cta"><a class="apply" href="apply.html">Apply</a></li>
+        <li class="nav-item nav-item--cta is-active"><a class="apply is-active" href="donate.html">Donate</a></li>
+      </ul>
     </nav>
   </div>
 </header>
@@ -262,6 +304,14 @@
     </ul>
   </div>
 </footer>
+
+
+<!-- Sticky mobile CTA bar -->
+<div class="mobile-cta-bar" aria-label="Quick actions">
+  <a class="m-cta m-cta--apply" href="apply.html">Apply</a>
+  <a class="m-cta m-cta--donate" href="donate.html">Donate</a>
+  <a class="m-cta m-cta--crisis" href="get-support.html" aria-label="Get crisis support">988</a>
+</div>
 
 </body>
 </html>
