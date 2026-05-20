@@ -685,6 +685,27 @@ button,input,textarea,select{font:inherit;color:inherit}
 }
 .halftone.is-red::after{background-image:radial-gradient(circle at center, var(--orange) 32%, transparent 33%)}
 
+/* === TRUST STRIP (donate) === */
+.trust-strip{background:var(--bone-2);border-top:1px solid var(--ink);border-bottom:1px solid var(--ink);padding:clamp(20px,2.4vw,32px) var(--pad-x)}
+.trust-row{max-width:var(--max);margin-inline:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(20px,2.4vw,36px)}
+@media (max-width:880px){.trust-row{grid-template-columns:repeat(2,1fr);gap:24px}}
+@media (max-width:480px){.trust-row{grid-template-columns:1fr;gap:18px}}
+.trust-cell{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.trust-cell .lbl{font-family:var(--ff-mono);font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+.trust-cell .val{font-family:var(--ff-display);font-weight:900;font-size:clamp(28px,3.2vw,36px);letter-spacing:.01em;color:var(--ink);line-height:1}
+.trust-cell .val small{font-size:.55em;font-weight:500;color:var(--ink-soft);margin-left:2px;letter-spacing:.04em}
+.trust-cell .desc{font-family:var(--ff-edit);font-style:italic;font-size:14px;color:var(--ink-soft);line-height:1.3}
+
+/* === DONOR FAQ === */
+.faq{border-top:1px solid var(--ink)}
+.faq details{border-bottom:1px solid var(--ink);padding:0}
+.faq summary{padding:22px 0;cursor:pointer;font-family:var(--ff-display);font-weight:800;font-size:clamp(17px,1.8vw,22px);letter-spacing:.02em;text-transform:uppercase;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:24px;color:var(--ink)}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:'+';font-family:var(--ff-mono);font-size:24px;font-weight:400;color:var(--orange-deep);transition:transform .2s ease;flex:none}
+.faq details[open] summary::after{transform:rotate(45deg)}
+.faq details > p,.faq details > div{padding:0 0 24px 0;font-size:15px;line-height:1.55;color:var(--ink-soft);max-width:72ch}
+.faq details > p+p{padding-top:10px}
+
 /* === BOARD GRID === */
 .board-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,28px)}
 @media (max-width:980px){.board-grid{grid-template-columns:repeat(2,1fr)}}
