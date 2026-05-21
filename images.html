@@ -1,0 +1,768 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<meta name="robots" content="noindex,nofollow" />
+<title>Image Library &middot; BEVP &middot; Internal</title>
+<meta name="description" content="Internal image library for BEVP designers and partners. Every photo, logo, and icon used on or available for the site." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@500;700;800;900&family=Spectral:ital,wght@0,400;0,500;1,400;1,500&family=JetBrains+Mono:wght@400;500&family=Public+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+<link rel="icon" type="image/svg+xml" href="favicon.svg">
+<style>
+  body{background:var(--bone)}
+  .lib-hero{padding:clamp(48px,7vw,96px) var(--pad-x) clamp(28px,3vw,40px)}
+  .lib-hero .wrap{max-width:var(--max);margin-inline:auto}
+  .lib-hero h1{font-family:var(--ff-display);font-weight:900;font-size:clamp(40px,6vw,80px);line-height:.95;letter-spacing:-.005em;text-transform:uppercase;color:var(--ink);margin-bottom:18px}
+  .lib-hero h1 em{font-family:var(--ff-edit);font-style:italic;font-weight:500;text-transform:none;color:var(--orange-deep)}
+  .lib-hero .eyebrow{display:inline-block;font-family:var(--ff-mono);font-size:11px;letter-spacing:.24em;text-transform:uppercase;color:var(--orange);background:rgba(255,42,0,.08);padding:6px 12px;border:1px solid var(--orange);margin-bottom:18px}
+  .lib-hero p{font-family:var(--ff-edit);font-style:italic;font-size:clamp(18px,1.8vw,22px);max-width:64ch;line-height:1.4;color:var(--ink-soft)}
+  .lib-sec{padding:clamp(32px,4vw,56px) var(--pad-x);border-top:1px solid var(--ink)}
+  .lib-sec .wrap{max-width:var(--max);margin-inline:auto}
+  .lib-sec h2{font-family:var(--ff-display);font-weight:900;font-size:clamp(28px,3.4vw,42px);text-transform:uppercase;letter-spacing:.01em;line-height:1;color:var(--ink);margin-bottom:8px}
+  .lib-sec .sub{font-family:var(--ff-edit);font-style:italic;font-size:15px;color:var(--ink-soft);max-width:64ch;line-height:1.45;margin-bottom:36px}
+  .lib-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(18px,2vw,28px)}
+  @media (max-width:980px){.lib-grid{grid-template-columns:repeat(2,1fr)}}
+  @media (max-width:560px){.lib-grid{grid-template-columns:1fr}}
+  .lib-card{display:flex;flex-direction:column;background:var(--bone-2);border:1px solid var(--ink)}
+  .lib-thumb{aspect-ratio:4/3;background:#d8cdb5;display:flex;align-items:center;justify-content:center;overflow:hidden;border-bottom:1px solid var(--ink);position:relative}
+  .lib-thumb img{max-width:100%;max-height:100%;width:auto;height:auto;display:block;object-fit:contain}
+  .lib-thumb--photo img{width:100%;height:100%;object-fit:cover}
+  .lib-thumb--dark{background:var(--ink)}
+  .lib-body{padding:14px 16px 18px;display:flex;flex-direction:column;gap:6px;flex:1}
+  .lib-body .name{font-family:var(--ff-mono);font-size:12px;letter-spacing:.04em;color:var(--ink);word-break:break-all}
+  .lib-meta{display:flex;flex-wrap:wrap;gap:12px;font-family:var(--ff-mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink-soft)}
+  .lib-meta b{color:var(--ink);font-weight:500}
+  .lib-usage{font-family:var(--ff-edit);font-style:italic;font-size:13px;color:var(--ink-soft);line-height:1.35;margin-top:auto;padding-top:8px}
+  .lib-usage--unused{color:var(--orange-deep);font-weight:600}
+  .lib-actions{display:flex;gap:8px;margin-top:12px;flex-wrap:wrap}
+  .lib-actions a{flex:1;text-align:center;padding:8px 12px;font-family:var(--ff-mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;text-decoration:none;border:1px solid var(--ink);background:transparent;color:var(--ink);min-width:90px}
+  .lib-actions a:hover{background:var(--ink);color:var(--bone)}
+  .lib-actions a.dl{background:var(--ink);color:var(--bone)}
+  .lib-actions a.dl:hover{background:var(--orange);color:var(--bone)}
+  .lib-count{font-family:var(--ff-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--orange-deep);margin-left:8px;font-weight:600}
+  .lib-foot{padding:clamp(28px,3vw,40px) var(--pad-x);border-top:1px solid var(--ink);font-family:var(--ff-mono);font-size:11px;letter-spacing:.06em;color:var(--ink-soft);line-height:1.6}
+  .lib-foot .wrap{max-width:var(--max);margin-inline:auto}
+  .lib-foot a{color:var(--orange-deep);text-decoration:underline}
+</style>
+</head>
+<body>
+
+<section class="lib-hero">
+  <div class="wrap">
+    <span class="eyebrow">// Internal &middot; Designer Handoff</span>
+    <h1>BEVP image <em>library</em>.</h1>
+    <p>Every photo, logo, icon, and favicon shipping with the site &mdash; thumbnails, filenames, dimensions, file sizes, and direct downloads. Share this URL with the design team for asset pickup. Right-click any thumbnail to copy the file location, or use the Download buttons below each card.</p>
+  </div>
+</section>
+
+<section class="lib-sec">
+  <div class="wrap">
+    <h2>Field photography<span class="lib-count">8 files</span></h2>
+    <p class="sub">In-rotation editorial photography. Use these for hero blocks, social cards, and press placements.</p>
+    <div class="lib-grid">
+      <article class="lib-card">
+        <div class="lib-thumb lib-thumb--photo">
+          <img src="img/MRC03890.jpg" alt="MRC03890.jpg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/MRC03890.jpg</span>
+          <div class="lib-meta">
+            <span><b>2.3 MB</b> on disk</span>
+            <span><b>2048&times;1365</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>17</b> pages: 7x-project.html, about.html, apply-thanks.html, apply.html, documentary.html, donate-thanks.html, +11 more</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/MRC03890.jpg" download="MRC03890.jpg">Download</a>
+            <a href="img/MRC03890.jpg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb lib-thumb--photo">
+          <img src="img/CMAbseil2.jpg" alt="CMAbseil2.jpg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/CMAbseil2.jpg</span>
+          <div class="lib-meta">
+            <span><b>1.6 MB</b> on disk</span>
+            <span><b>5612&times;3741</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>6</b> pages: 7x-project.html, donate.html, events.html, index.html, program.html, programs.html</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/CMAbseil2.jpg" download="CMAbseil2.jpg">Download</a>
+            <a href="img/CMAbseil2.jpg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb lib-thumb--photo">
+          <img src="img/7xStartKatieZach.jpg" alt="7xStartKatieZach.jpg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/7xStartKatieZach.jpg</span>
+          <div class="lib-meta">
+            <span><b>647.6 KB</b> on disk</span>
+            <span><b>4242&times;2828</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>4</b> pages: 7x-project.html, events.html, index.html, programs.html</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/7xStartKatieZach.jpg" download="7xStartKatieZach.jpg">Download</a>
+            <a href="img/7xStartKatieZach.jpg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb lib-thumb--photo">
+          <img src="img/AlastairBASE.jpg" alt="AlastairBASE.jpg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/AlastairBASE.jpg</span>
+          <div class="lib-meta">
+            <span><b>1.3 MB</b> on disk</span>
+            <span><b>4242&times;2828</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>4</b> pages: 7x-project.html, events.html, index.html, programs.html</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/AlastairBASE.jpg" download="AlastairBASE.jpg">Download</a>
+            <a href="img/AlastairBASE.jpg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb lib-thumb--photo">
+          <img src="img/EgyptJump.jpg" alt="EgyptJump.jpg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/EgyptJump.jpg</span>
+          <div class="lib-meta">
+            <span><b>4.0 MB</b> on disk</span>
+            <span><b>2048&times;2048</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>4</b> pages: about.html, events.html, index.html, programs.html</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/EgyptJump.jpg" download="EgyptJump.jpg">Download</a>
+            <a href="img/EgyptJump.jpg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb lib-thumb--photo">
+          <img src="img/AntarcticaPlaneDeBoard.jpg" alt="AntarcticaPlaneDeBoard.jpg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/AntarcticaPlaneDeBoard.jpg</span>
+          <div class="lib-meta">
+            <span><b>1.3 MB</b> on disk</span>
+            <span><b>4242&times;2828</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>3</b> pages: events.html, index.html, programs.html</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/AntarcticaPlaneDeBoard.jpg" download="AntarcticaPlaneDeBoard.jpg">Download</a>
+            <a href="img/AntarcticaPlaneDeBoard.jpg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb lib-thumb--photo">
+          <img src="img/absailing3.jpg" alt="absailing3.jpg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/absailing3.jpg</span>
+          <div class="lib-meta">
+            <span><b>1.2 MB</b> on disk</span>
+            <span><b>4242&times;2828</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>3</b> pages: events.html, index.html, programs.html</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/absailing3.jpg" download="absailing3.jpg">Download</a>
+            <a href="img/absailing3.jpg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb lib-thumb--photo">
+          <img src="img/DSC07364-1.jpg" alt="DSC07364-1.jpg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/DSC07364-1.jpg</span>
+          <div class="lib-meta">
+            <span><b>12.5 MB</b> on disk</span>
+            <span><b>6000&times;4000</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>2</b> pages: events.html, index.html</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/DSC07364-1.jpg" download="DSC07364-1.jpg">Download</a>
+            <a href="img/DSC07364-1.jpg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="lib-sec">
+  <div class="wrap">
+    <h2>Team & portraits<span class="lib-count">1 file</span></h2>
+    <p class="sub">Headshots and founder/board portraits. Editorial-resolution, cleared for site + press use.</p>
+    <div class="lib-grid">
+      <article class="lib-card">
+        <div class="lib-thumb lib-thumb--photo">
+          <img src="img/team/birdman.jpg" alt="birdman.jpg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/team/birdman.jpg</span>
+          <div class="lib-meta">
+            <span><b>835.6 KB</b> on disk</span>
+            <span><b>2048&times;2560</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>1</b> page: about.html</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/team/birdman.jpg" download="birdman.jpg">Download</a>
+            <a href="img/team/birdman.jpg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="lib-sec">
+  <div class="wrap">
+    <h2>Brand assets — logos, icons, wordmarks<span class="lib-count">22 files</span></h2>
+    <p class="sub">Logo lockups (horizontal + vertical), icon-only marks, and wordmarks in black/white/orange variants. Only the black horizontal (header) and white horizontal (footer) are currently wired into the site; the rest are the brand library for future use.</p>
+    <div class="lib-grid">
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="img/brand/logo-horizontal-black.svg" alt="logo-horizontal-black.svg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/logo-horizontal-black.svg</span>
+          <div class="lib-meta">
+            <span><b>8.0 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>17</b> pages: 7x-project.html, about.html, apply-thanks.html, apply.html, documentary.html, donate-thanks.html, +11 more</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/logo-horizontal-black.svg" download="logo-horizontal-black.svg">Download</a>
+            <a href="img/brand/logo-horizontal-black.svg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb  lib-thumb--dark">
+          <img src="img/brand/logo-horizontal-white.svg" alt="logo-horizontal-white.svg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/logo-horizontal-white.svg</span>
+          <div class="lib-meta">
+            <span><b>8.0 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>17</b> pages: 7x-project.html, about.html, apply-thanks.html, apply.html, documentary.html, donate-thanks.html, +11 more</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/logo-horizontal-white.svg" download="logo-horizontal-white.svg">Download</a>
+            <a href="img/brand/logo-horizontal-white.svg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="img/brand/apple-touch-icon.png" alt="apple-touch-icon.png" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/apple-touch-icon.png</span>
+          <div class="lib-meta">
+            <span><b>14.2 KB</b> on disk</span>
+            <span><b>180&times;180</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/apple-touch-icon.png" download="apple-touch-icon.png">Download</a>
+            <a href="img/brand/apple-touch-icon.png" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="img/brand/favicon-16.png" alt="favicon-16.png" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/favicon-16.png</span>
+          <div class="lib-meta">
+            <span><b>1.2 KB</b> on disk</span>
+            <span><b>16&times;16</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/favicon-16.png" download="favicon-16.png">Download</a>
+            <a href="img/brand/favicon-16.png" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="img/brand/favicon-192.png" alt="favicon-192.png" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/favicon-192.png</span>
+          <div class="lib-meta">
+            <span><b>14.2 KB</b> on disk</span>
+            <span><b>192&times;192</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/favicon-192.png" download="favicon-192.png">Download</a>
+            <a href="img/brand/favicon-192.png" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="img/brand/favicon-32.png" alt="favicon-32.png" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/favicon-32.png</span>
+          <div class="lib-meta">
+            <span><b>2.1 KB</b> on disk</span>
+            <span><b>32&times;32</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/favicon-32.png" download="favicon-32.png">Download</a>
+            <a href="img/brand/favicon-32.png" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="img/brand/favicon-48.png" alt="favicon-48.png" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/favicon-48.png</span>
+          <div class="lib-meta">
+            <span><b>3.1 KB</b> on disk</span>
+            <span><b>48&times;48</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/favicon-48.png" download="favicon-48.png">Download</a>
+            <a href="img/brand/favicon-48.png" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="img/brand/favicon-512.png" alt="favicon-512.png" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/favicon-512.png</span>
+          <div class="lib-meta">
+            <span><b>46.8 KB</b> on disk</span>
+            <span><b>512&times;512</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/favicon-512.png" download="favicon-512.png">Download</a>
+            <a href="img/brand/favicon-512.png" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="img/brand/icon-1024.png" alt="icon-1024.png" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/icon-1024.png</span>
+          <div class="lib-meta">
+            <span><b>95.8 KB</b> on disk</span>
+            <span><b>1024&times;1024</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/icon-1024.png" download="icon-1024.png">Download</a>
+            <a href="img/brand/icon-1024.png" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="img/brand/icon-black-orange.png" alt="icon-black-orange.png" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/icon-black-orange.png</span>
+          <div class="lib-meta">
+            <span><b>38.5 KB</b> on disk</span>
+            <span><b>816&times;1001</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/icon-black-orange.png" download="icon-black-orange.png">Download</a>
+            <a href="img/brand/icon-black-orange.png" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="img/brand/icon-black-orange.svg" alt="icon-black-orange.svg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/icon-black-orange.svg</span>
+          <div class="lib-meta">
+            <span><b>4.3 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/icon-black-orange.svg" download="icon-black-orange.svg">Download</a>
+            <a href="img/brand/icon-black-orange.svg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="img/brand/icon-black.svg" alt="icon-black.svg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/icon-black.svg</span>
+          <div class="lib-meta">
+            <span><b>4.2 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/icon-black.svg" download="icon-black.svg">Download</a>
+            <a href="img/brand/icon-black.svg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb  lib-thumb--dark">
+          <img src="img/brand/icon-white-orange.svg" alt="icon-white-orange.svg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/icon-white-orange.svg</span>
+          <div class="lib-meta">
+            <span><b>4.3 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/icon-white-orange.svg" download="icon-white-orange.svg">Download</a>
+            <a href="img/brand/icon-white-orange.svg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb  lib-thumb--dark">
+          <img src="img/brand/icon-white.svg" alt="icon-white.svg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/icon-white.svg</span>
+          <div class="lib-meta">
+            <span><b>4.3 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/icon-white.svg" download="icon-white.svg">Download</a>
+            <a href="img/brand/icon-white.svg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="img/brand/logo-horizontal-black-orange.svg" alt="logo-horizontal-black-orange.svg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/logo-horizontal-black-orange.svg</span>
+          <div class="lib-meta">
+            <span><b>8.6 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/logo-horizontal-black-orange.svg" download="logo-horizontal-black-orange.svg">Download</a>
+            <a href="img/brand/logo-horizontal-black-orange.svg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb  lib-thumb--dark">
+          <img src="img/brand/logo-horizontal-white-orange.svg" alt="logo-horizontal-white-orange.svg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/logo-horizontal-white-orange.svg</span>
+          <div class="lib-meta">
+            <span><b>8.9 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/logo-horizontal-white-orange.svg" download="logo-horizontal-white-orange.svg">Download</a>
+            <a href="img/brand/logo-horizontal-white-orange.svg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="img/brand/logo-vertical-black-orange.svg" alt="logo-vertical-black-orange.svg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/logo-vertical-black-orange.svg</span>
+          <div class="lib-meta">
+            <span><b>9.0 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/logo-vertical-black-orange.svg" download="logo-vertical-black-orange.svg">Download</a>
+            <a href="img/brand/logo-vertical-black-orange.svg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="img/brand/logo-vertical-black.svg" alt="logo-vertical-black.svg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/logo-vertical-black.svg</span>
+          <div class="lib-meta">
+            <span><b>8.9 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/logo-vertical-black.svg" download="logo-vertical-black.svg">Download</a>
+            <a href="img/brand/logo-vertical-black.svg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb  lib-thumb--dark">
+          <img src="img/brand/logo-vertical-white-orange.svg" alt="logo-vertical-white-orange.svg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/logo-vertical-white-orange.svg</span>
+          <div class="lib-meta">
+            <span><b>9.3 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/logo-vertical-white-orange.svg" download="logo-vertical-white-orange.svg">Download</a>
+            <a href="img/brand/logo-vertical-white-orange.svg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb  lib-thumb--dark">
+          <img src="img/brand/logo-vertical-white.svg" alt="logo-vertical-white.svg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/logo-vertical-white.svg</span>
+          <div class="lib-meta">
+            <span><b>9.2 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/logo-vertical-white.svg" download="logo-vertical-white.svg">Download</a>
+            <a href="img/brand/logo-vertical-white.svg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="img/brand/wordmark-black.svg" alt="wordmark-black.svg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/wordmark-black.svg</span>
+          <div class="lib-meta">
+            <span><b>8.5 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/wordmark-black.svg" download="wordmark-black.svg">Download</a>
+            <a href="img/brand/wordmark-black.svg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb  lib-thumb--dark">
+          <img src="img/brand/wordmark-white.svg" alt="wordmark-white.svg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">img/brand/wordmark-white.svg</span>
+          <div class="lib-meta">
+            <span><b>8.9 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="img/brand/wordmark-white.svg" download="wordmark-white.svg">Download</a>
+            <a href="img/brand/wordmark-white.svg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="lib-sec">
+  <div class="wrap">
+    <h2>Favicons & PWA icons<span class="lib-count">8 files</span></h2>
+    <p class="sub">Browser tab icons, Apple touch icon, and PWA install icons. Referenced from every page&rsquo;s &lt;head&gt;.</p>
+    <div class="lib-grid">
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="apple-touch-icon.png" alt="apple-touch-icon.png" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">apple-touch-icon.png</span>
+          <div class="lib-meta">
+            <span><b>14.2 KB</b> on disk</span>
+            <span><b>180&times;180</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>17</b> pages: 7x-project.html, about.html, apply-thanks.html, apply.html, documentary.html, donate-thanks.html, +11 more</p>
+          <div class="lib-actions">
+            <a class="dl" href="apple-touch-icon.png" download="apple-touch-icon.png">Download</a>
+            <a href="apple-touch-icon.png" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="favicon-16.png" alt="favicon-16.png" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">favicon-16.png</span>
+          <div class="lib-meta">
+            <span><b>1.2 KB</b> on disk</span>
+            <span><b>16&times;16</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>17</b> pages: 7x-project.html, about.html, apply-thanks.html, apply.html, documentary.html, donate-thanks.html, +11 more</p>
+          <div class="lib-actions">
+            <a class="dl" href="favicon-16.png" download="favicon-16.png">Download</a>
+            <a href="favicon-16.png" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="favicon-32.png" alt="favicon-32.png" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">favicon-32.png</span>
+          <div class="lib-meta">
+            <span><b>2.1 KB</b> on disk</span>
+            <span><b>32&times;32</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>17</b> pages: 7x-project.html, about.html, apply-thanks.html, apply.html, documentary.html, donate-thanks.html, +11 more</p>
+          <div class="lib-actions">
+            <a class="dl" href="favicon-32.png" download="favicon-32.png">Download</a>
+            <a href="favicon-32.png" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="favicon.ico" alt="favicon.ico" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">favicon.ico</span>
+          <div class="lib-meta">
+            <span><b>4.3 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>17</b> pages: 7x-project.html, about.html, apply-thanks.html, apply.html, documentary.html, donate-thanks.html, +11 more</p>
+          <div class="lib-actions">
+            <a class="dl" href="favicon.ico" download="favicon.ico">Download</a>
+            <a href="favicon.ico" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="favicon.svg" alt="favicon.svg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">favicon.svg</span>
+          <div class="lib-meta">
+            <span><b>4.3 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>17</b> pages: 7x-project.html, about.html, apply-thanks.html, apply.html, documentary.html, donate-thanks.html, +11 more</p>
+          <div class="lib-actions">
+            <a class="dl" href="favicon.svg" download="favicon.svg">Download</a>
+            <a href="favicon.svg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="safari-pinned-tab.svg" alt="safari-pinned-tab.svg" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">safari-pinned-tab.svg</span>
+          <div class="lib-meta">
+            <span><b>4.2 KB</b> on disk</span>
+            <span><b>vector</b></span>
+          </div>
+          <p class="lib-usage">Used on <b>17</b> pages: 7x-project.html, about.html, apply-thanks.html, apply.html, documentary.html, donate-thanks.html, +11 more</p>
+          <div class="lib-actions">
+            <a class="dl" href="safari-pinned-tab.svg" download="safari-pinned-tab.svg">Download</a>
+            <a href="safari-pinned-tab.svg" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="icon-192.png" alt="icon-192.png" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">icon-192.png</span>
+          <div class="lib-meta">
+            <span><b>14.2 KB</b> on disk</span>
+            <span><b>192&times;192</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="icon-192.png" download="icon-192.png">Download</a>
+            <a href="icon-192.png" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+      <article class="lib-card">
+        <div class="lib-thumb ">
+          <img src="icon-512.png" alt="icon-512.png" loading="lazy">
+        </div>
+        <div class="lib-body">
+          <span class="name">icon-512.png</span>
+          <div class="lib-meta">
+            <span><b>46.8 KB</b> on disk</span>
+            <span><b>512&times;512</b></span>
+          </div>
+          <p class="lib-usage lib-usage--unused">Not currently used &mdash; available in the brand library.</p>
+          <div class="lib-actions">
+            <a class="dl" href="icon-512.png" download="icon-512.png">Download</a>
+            <a href="icon-512.png" target="_blank" rel="noopener">Open full size</a>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="lib-foot">
+  <div class="wrap">
+    <p>// Generated from the live site repo. To request a missing image (board headshots, per-event hero photos, 1200&times;630 social card, documentary stills), email <a href="mailto:press@birdseyeviewproject.org?subject=Image%20Request">press@birdseyeviewproject.org</a>. For brand inquiries about logo usage rights: <a href="mailto:info@birdseyeviewproject.org?subject=Brand%20Usage">info@birdseyeviewproject.org</a>.</p>
+    <p style="margin-top:14px">// Page is noindex&rsquo;d &mdash; share directly via URL; will not surface in search.</p>
+  </div>
+</section>
+
+</body>
+</html>
