@@ -136,23 +136,65 @@ button,input,textarea,select{font:inherit;color:inherit}
 
 /* Mobile hamburger toggle */
 .nav-toggle-checkbox{display:none}
-.nav-toggle-label{display:none;flex-direction:column;gap:5px;padding:10px;cursor:pointer;border:1px solid transparent;margin-left:auto}
-.nav-toggle-label span{display:block;width:24px;height:2px;background:var(--ink);transition:transform .2s,opacity .2s}
+.nav-toggle-label{
+  display:none;flex-direction:column;justify-content:center;gap:5px;
+  width:44px;height:44px;padding:0;
+  cursor:pointer;border:1px solid transparent;margin-left:auto;
+  align-items:center;
+  transition:background .2s ease, border-color .2s ease;
+}
+.nav-toggle-label span{display:block;width:24px;height:2px;background:var(--ink);transition:transform .2s,opacity .2s,background .2s,width .2s}
 
 /* Mobile breakpoint */
 @media (max-width:1080px){
-  .nav-toggle-label{display:flex}
+  .nav-toggle-label{display:flex;position:relative;z-index:60}
   .nav{
-    position:fixed;top:0;left:0;right:0;height:100vh;
+    position:fixed;top:0;left:0;right:0;height:100vh;height:100dvh;
     background:var(--bone);
-    transform:translateY(-100%);transition:transform .25s ease;
-    padding:88px 24px 120px;overflow-y:auto;z-index:55;
-    align-items:stretch;
+    transform:translateY(-100%);transition:transform .28s ease;
+    padding:0 24px max(120px,env(safe-area-inset-bottom,0px) + 96px);
+    overflow-y:auto;-webkit-overflow-scrolling:touch;
+    z-index:55;
+    display:flex;flex-direction:column;align-items:stretch;
   }
   .nav-toggle-checkbox:checked ~ .nav{transform:translateY(0)}
+
+  /* When open: lift the toggle into a fixed, prominent close pill above the nav */
+  .nav-toggle-checkbox:checked + .nav-toggle-label{
+    position:fixed;top:14px;right:14px;z-index:70;
+    width:48px;height:48px;
+    background:var(--ink);border-color:var(--ink);border-radius:999px;
+    box-shadow:0 4px 16px rgba(14,13,11,.25);
+  }
+  .nav-toggle-checkbox:checked + .nav-toggle-label span{background:var(--bone);width:22px}
   .nav-toggle-checkbox:checked + .nav-toggle-label span:nth-child(1){transform:translateY(7px) rotate(45deg)}
   .nav-toggle-checkbox:checked + .nav-toggle-label span:nth-child(2){opacity:0}
   .nav-toggle-checkbox:checked + .nav-toggle-label span:nth-child(3){transform:translateY(-7px) rotate(-45deg)}
+  .nav-toggle-label:hover,
+  .nav-toggle-label:focus-visible{background:rgba(14,13,11,.06);border-color:rgba(14,13,11,.18);outline:none}
+  .nav-toggle-checkbox:checked + .nav-toggle-label:hover,
+  .nav-toggle-checkbox:checked + .nav-toggle-label:focus-visible{background:var(--orange);border-color:var(--orange)}
+
+  /* Lock body scroll when nav is open (modern browsers) */
+  html:has(#nav-toggle:checked),
+  body:has(#nav-toggle:checked){overflow:hidden;height:100%}
+  /* Body scroll lock fallback class for older browsers (set by JS) */
+  body.nav-open{overflow:hidden;height:100%;position:fixed;width:100%}
+
+  /* Sticky "Menu" header strip inside the open drawer — sits above the scrolling list */
+  .nav::before{
+    content:"Menu";
+    position:sticky;top:0;
+    flex:none;align-self:stretch;
+    margin:0 -24px 16px;
+    padding:24px 80px 18px 24px;
+    background:var(--bone);
+    border-bottom:1px solid rgba(14,13,11,.12);
+    font-family:var(--ff-mono);font-weight:500;font-size:11px;letter-spacing:.28em;
+    text-transform:uppercase;color:var(--ink-soft);
+    z-index:1;
+  }
+
   .nav-list{flex-direction:column;align-items:stretch;gap:0;width:100%}
   .nav-item{width:100%;border-bottom:1px solid rgba(14,13,11,.08)}
   .nav-item > a{padding:18px 0;font-size:13px}

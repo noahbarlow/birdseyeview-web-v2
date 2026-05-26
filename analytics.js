@@ -11,6 +11,45 @@
 
 (function () {
   'use strict';
+
+  /* === Mobile nav close behavior ===
+     The nav is a checkbox-driven CSS overlay. These handlers make it actually
+     dismissable on mobile: Escape closes, tapping a nav link closes (so in-page
+     anchors don't leave it stuck open), and the body scroll is locked while open
+     (CSS :has() handles modern browsers; the .nav-open class is a fallback). */
+  (function navUX(){
+    var toggle = document.getElementById('nav-toggle');
+    var nav = document.getElementById('primary-nav');
+    if (!toggle || !nav) return;
+
+    function close(){ toggle.checked = false; sync(); }
+    function sync(){
+      document.body.classList.toggle('nav-open', toggle.checked);
+      toggle.setAttribute('aria-expanded', toggle.checked ? 'true' : 'false');
+    }
+
+    toggle.addEventListener('change', sync);
+    sync();
+
+    // Escape key — close the menu
+    document.addEventListener('keydown', function(e){
+      if (e.key === 'Escape' && toggle.checked) { close(); }
+    });
+
+    // Tap a link inside the menu — close it (handles in-page anchor clicks too)
+    nav.addEventListener('click', function(e){
+      var a = e.target.closest && e.target.closest('a');
+      if (!a) return;
+      close();
+    });
+
+    // If the viewport widens back to desktop, drop the open state and body lock
+    var mq = window.matchMedia('(min-width: 1081px)');
+    var onMq = function(){ if (mq.matches && toggle.checked) close(); };
+    if (mq.addEventListener) mq.addEventListener('change', onMq);
+    else if (mq.addListener) mq.addListener(onMq);
+  })();
+
   window.dataLayer = window.dataLayer || [];
   function track(eventName, params) {
     var payload = Object.assign({ event: eventName }, params || {});
