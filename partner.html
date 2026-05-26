@@ -34,6 +34,10 @@
 <meta name="twitter:description" content="Four ways organizations and foundations partner with Bird's Eye View Project to fund and extend the War Feather program for veterans and first responders." />
 <meta name="twitter:image" content="https://birdseyeviewproject.org/img/MRC03890.jpg" />
 <script src="analytics.js" defer></script>
+<!-- Calendly scheduling popup
+     TODO: Swap URL to a BEVP-owned Calendly account when provisioned. -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
 
@@ -127,7 +131,10 @@
       Four ways to extend the mission as an organization, foundation, or operator-led community &mdash; each with a defined deliverable, a clear ask, and a named contact.
     </p>
     <div class="hero-cta reveal" style="margin-top:24px">
-      <a class="btn btn--orange" href="contact.html#partner-inquiry">Book a Call <span class="arrow">&rarr;</span></a>
+      <a class="btn btn--orange"
+         href="contact.html#partner-inquiry"
+         data-calendly="https://calendly.com/noah-smalleragency/coffee-reconnect"
+         onclick="if(window.Calendly){Calendly.initPopupWidget({url:this.dataset.calendly});return false}">Book a Call <span class="arrow">&rarr;</span></a>
       <a class="btn btn--ghost" href="#lanes">See the Four Lanes</a>
     </div>
   </div>
@@ -406,7 +413,10 @@
     <h2>One call. <em>One brief</em>. One year.</h2>
     <p>Pick the lane that fits, send a sentence about what you&rsquo;re considering. We respond within three business days with the right brief and a calendar.</p>
     <div class="hero-cta">
-      <a class="btn btn--orange" href="contact.html#partner-inquiry">Book a Call <span class="arrow">&rarr;</span></a>
+      <a class="btn btn--orange"
+         href="contact.html#partner-inquiry"
+         data-calendly="https://calendly.com/noah-smalleragency/coffee-reconnect"
+         onclick="if(window.Calendly){Calendly.initPopupWidget({url:this.dataset.calendly});return false}">Book a Call <span class="arrow">&rarr;</span></a>
       <a class="btn btn--inverse" href="donate.html">See Where Dollars Go <span class="arrow">&rarr;</span></a>
     </div>
   </div>

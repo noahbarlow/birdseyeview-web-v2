@@ -34,6 +34,12 @@
 <meta name="twitter:description" content="Book a call with the Bird's Eye View Project team. Major gifts, partnerships, press — every conversation routed to a named person with a clear response time." />
 <meta name="twitter:image" content="https://birdseyeviewproject.org/img/MRC03890.jpg" />
 <script src="analytics.js" defer></script>
+<!-- Calendly scheduling popup
+     TODO: Currently bound to Noah Barlow's personal Calendly while a
+     BEVP-owned account is being provisioned. Swap the URL on both buttons
+     (#major-gift and #partner-inquiry below) when the org account is live. -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" async></script>
 </head>
 <body>
 
@@ -161,8 +167,10 @@
           <li><b style="color:var(--ink)">Format:</b> 30 min · video or phone</li>
           <li><b style="color:var(--ink)">Best for:</b> $5K+ gifts, foundations, DAFs</li>
         </ul>
-        <!-- TODO: replace with real Calendly URL when provisioned, e.g. https://calendly.com/bevp-major-gifts/30min -->
-        <a class="btn btn--orange btn--sm" href="mailto:major@birdseyeviewproject.org?subject=Major%20Gift%20Conversation&amp;body=Hi%20%E2%80%94%20I%27d%20like%20to%20talk%20about%20a%20gift%20to%20Bird%27s%20Eye%20View%20Project.%0A%0AGood%20times%20to%20meet%3A%0A%0AContext%20(optional)%3A%0A">Book a Call <span class="arrow">&rarr;</span></a>
+        <a class="btn btn--orange btn--sm"
+           href="mailto:major@birdseyeviewproject.org?subject=Major%20Gift%20Conversation&amp;body=Hi%20%E2%80%94%20I%27d%20like%20to%20talk%20about%20a%20gift%20to%20Bird%27s%20Eye%20View%20Project.%0A%0AGood%20times%20to%20meet%3A%0A%0AContext%20(optional)%3A%0A"
+           data-calendly="https://calendly.com/noah-smalleragency/coffee-reconnect"
+           onclick="if(window.Calendly){Calendly.initPopupWidget({url:this.dataset.calendly});return false}">Book a Call <span class="arrow">&rarr;</span></a>
         <p style="font-family:var(--ff-mono);font-size:10px;letter-spacing:.12em;color:var(--ink-soft);margin-top:10px">
           Or email <a href="mailto:major@birdseyeviewproject.org" style="color:var(--orange-deep);text-decoration:underline">major@birdseyeviewproject.org</a>
         </p>
@@ -179,8 +187,10 @@
           <li><b style="color:var(--ink)">Format:</b> 30 min · video or in-person</li>
           <li><b style="color:var(--ink)">Best for:</b> corporate, foundation, clinical, community</li>
         </ul>
-        <!-- TODO: replace with real Calendly URL when provisioned -->
-        <a class="btn btn--orange btn--sm" href="mailto:partner@birdseyeviewproject.org?subject=Partnership%20Inquiry&amp;body=Org%3A%0A%0AYour%20role%3A%0A%0ALane%20(corporate%2Ffoundation%2Fclinical%2Fcommunity)%3A%0A%0AWhat%20you%27re%20considering%3A%0A">Book a Call <span class="arrow">&rarr;</span></a>
+        <a class="btn btn--orange btn--sm"
+           href="mailto:partner@birdseyeviewproject.org?subject=Partnership%20Inquiry&amp;body=Org%3A%0A%0AYour%20role%3A%0A%0ALane%20(corporate%2Ffoundation%2Fclinical%2Fcommunity)%3A%0A%0AWhat%20you%27re%20considering%3A%0A"
+           data-calendly="https://calendly.com/noah-smalleragency/coffee-reconnect"
+           onclick="if(window.Calendly){Calendly.initPopupWidget({url:this.dataset.calendly});return false}">Book a Call <span class="arrow">&rarr;</span></a>
         <p style="font-family:var(--ff-mono);font-size:10px;letter-spacing:.12em;color:var(--ink-soft);margin-top:10px">
           Or email <a href="mailto:partner@birdseyeviewproject.org" style="color:var(--orange-deep);text-decoration:underline">partner@birdseyeviewproject.org</a> &middot; <a href="partner.html" style="color:var(--orange-deep);text-decoration:underline">see the four lanes &rarr;</a>
         </p>
