@@ -478,6 +478,9 @@ button,input,textarea,select{font:inherit;color:inherit}
 
 .pillars--3{grid-template-columns:repeat(3,1fr)}
 @media (max-width:760px){.pillars--3{grid-template-columns:1fr}.pillars--3 .pillar{border-right:0;border-bottom:1px solid var(--ink)}.section.dark .pillars--3 .pillar{border-bottom-color:var(--rule-bone)}}
+.pillars--2{grid-template-columns:repeat(2,1fr)}
+.pillars--2 .pillar{padding:clamp(24px,3vw,40px)}
+@media (max-width:760px){.pillars--2{grid-template-columns:1fr}.pillars--2 .pillar{border-right:0;border-bottom:1px solid var(--ink)}.section.dark .pillars--2 .pillar{border-bottom-color:var(--rule-bone)}}
 
 /* === STEPS / PROCESS === */
 .steps{display:grid;grid-template-columns:1fr;border:1px solid var(--ink)}
