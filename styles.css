@@ -81,13 +81,20 @@ button,input,textarea,select{font:inherit;color:inherit}
 .brand-mark{width:34px;height:42px;flex:none;display:block}
 .bevp-feather{fill:var(--orange)}
 .bevp-eye{fill:var(--ink)}
-/* On any dark surface, swap eye to bone so it stays visible */
+/* On dark surfaces — eye becomes bone so it stays visible against ink.
+   Feather stays orange (visible on dark). */
 .section.dark .bevp-eye,
 .foot .bevp-eye,
-.band .bevp-eye,
-.poster .bevp-eye,
 .imghero .bevp-eye,
 .final .bevp-eye{fill:var(--bone)}
+/* On orange surfaces (band, poster) — both feather AND eye become ink
+   (single-color black) so the full icon reads cleanly against the
+   brand orange background. Without this the orange feather paths
+   disappear into the bg and only the eye is visible. */
+.band .bevp-feather,
+.band .bevp-eye,
+.poster .bevp-feather,
+.poster .bevp-eye{fill:var(--ink)}
 /* === NAV (dropdowns) === */
 .nav{display:flex;align-items:center}
 .nav-list{display:flex;align-items:center;gap:clamp(12px,1.6vw,22px);list-style:none;margin:0;padding:0}
