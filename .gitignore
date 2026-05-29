@@ -4,3 +4,7 @@ node_modules/
 .env.local
 *.log
 .netlify/
+
+# Source-photo folders for team members (raw .docx, .heic, .pdf, etc.) — keep them local;
+# commit only the processed .jpg portraits at img/team/{slug}.jpg
+img/team/*/

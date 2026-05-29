@@ -918,12 +918,28 @@ button,input,textarea,select{font:inherit;color:inherit}
 .board-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(16px,2vw,28px)}
 @media (max-width:980px){.board-grid{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:520px){.board-grid{grid-template-columns:1fr}}
+/* Lead row — 3-up for Founder / Executive Director / Board Chair */
+.lead-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(16px,2vw,28px);margin-bottom:clamp(36px,4vw,56px)}
+@media (max-width:980px){.lead-grid{grid-template-columns:1fr}}
+.lead-grid .member__body{padding:22px 22px 26px}
+.lead-grid .member__body h4{font-size:20px}
+.lead-grid .member__body p{font-size:14px}
+.lead-subhead{font-family:var(--ff-mono);font-size:11px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft);margin-bottom:18px;display:block}
 .member{
   border:1px solid var(--ink);background:var(--bone-2);
   display:flex;flex-direction:column;
 }
-.member__photo{aspect-ratio:3/4;background:var(--ink);position:relative;border-bottom:1px solid var(--ink);overflow:hidden}
-.member__photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(.12) contrast(1.02)}
+.member__photo{aspect-ratio:3/4;background:var(--ink);position:relative;border-bottom:1px solid var(--ink);overflow:hidden;isolation:isolate}
+/* Halftone editorial treatment — high-contrast grayscale + dot screen overlay,
+   matching the brand .halftone pattern used elsewhere on the site. */
+.member__photo img{width:100%;height:100%;object-fit:cover;display:block;filter:grayscale(1) contrast(1.42) brightness(1.06)}
+.member__photo::after{
+  content:"";position:absolute;inset:0;pointer-events:none;z-index:2;
+  background-image:radial-gradient(circle at center, var(--ink) 32%, transparent 33%);
+  background-size:3px 3px;
+  mix-blend-mode:lighten;
+  opacity:.55;
+}
 .member__photo.placeholder{
   display:grid;place-items:center;color:rgba(236,227,208,.45);
   font-family:var(--ff-display);font-weight:900;font-size:84px;letter-spacing:.02em;
