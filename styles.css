@@ -79,22 +79,26 @@ button,input,textarea,select{font:inherit;color:inherit}
    Path classes: .bevp-feather (orange top) and .bevp-eye (dark wing/eye).
    Default (light bg): feather = orange, eye = ink. */
 .brand-mark{width:34px;height:42px;flex:none;display:block}
-.bevp-feather{fill:var(--orange)}
-.bevp-eye{fill:var(--ink)}
+/* Fill the icon via CSS custom properties so the values inherit through
+   the <use href="#feather"> shadow tree in ALL browsers. Descendant
+   class selectors (.band .bevp-feather) don't reliably penetrate the
+   shadow DOM created by <use> in Firefox — custom properties do.
+   Fallbacks (the second arg to var()) give us the default light-bg
+   palette: orange feather + ink eye. */
+.bevp-feather{fill:var(--feather-fill, var(--orange))}
+.bevp-eye{fill:var(--eye-fill, var(--ink))}
 /* On dark surfaces — eye becomes bone so it stays visible against ink.
    Feather stays orange (visible on dark). */
-.section.dark .bevp-eye,
-.foot .bevp-eye,
-.imghero .bevp-eye,
-.final .bevp-eye{fill:var(--bone)}
+.section.dark,
+.foot,
+.imghero,
+.final{--eye-fill:var(--bone)}
 /* On orange surfaces (band, poster) — both feather AND eye become ink
    (single-color black) so the full icon reads cleanly against the
-   brand orange background. Without this the orange feather paths
-   disappear into the bg and only the eye is visible. */
-.band .bevp-feather,
-.band .bevp-eye,
-.poster .bevp-feather,
-.poster .bevp-eye{fill:var(--ink)}
+   brand orange background. Without this, the orange feather paths
+   disappear into the bg and only the eye reads. */
+.band,
+.poster{--feather-fill:var(--ink);--eye-fill:var(--ink)}
 /* === NAV (dropdowns) === */
 .nav{display:flex;align-items:center}
 .nav-list{display:flex;align-items:center;gap:clamp(12px,1.6vw,22px);list-style:none;margin:0;padding:0}
